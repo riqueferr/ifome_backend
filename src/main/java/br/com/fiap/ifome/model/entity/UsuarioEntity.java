@@ -1,16 +1,37 @@
 package br.com.fiap.ifome.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-@Table(name = "USUARIO_PFISICA")
+@Data
+@Table(name = "TB_USUARIO")
+@AllArgsConstructor
+@NoArgsConstructor
 public class UsuarioEntity {
 
+    public UsuarioEntity(Integer cpf, Integer rg, String nomeCompleto, Integer celular, String sexo, String email, String dtNascimento, String dtCadastro, String senha) {
+        this.cpf = cpf;
+        this.rg = rg;
+        this.nomeCompleto = nomeCompleto;
+        this.celular = celular;
+        this.sexo = sexo;
+        this.email = email;
+        this.dtNascimento = dtNascimento;
+        this.dtCadastro = dtCadastro;
+        this.senha = senha;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="sq_test", sequenceName="sq_test", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sq_test")
     @Column(name = "ID_USUARIO")
-    private Integer id;
+    private Long id;
 
     @Column(name = "NR_CPF")
     private Integer cpf;
@@ -31,107 +52,12 @@ public class UsuarioEntity {
     private String email;
 
     @Column(name = "DT_NASCIMENTO")
-    private Date dtNascimento;
+    private String dtNascimento;
 
     @Column(name = "DT_CADASTRO")
-    private Date dtCadastro;
+    private String dtCadastro;
 
     @Column(name = "DS_SENHA")
     private String senha;
 
-    public UsuarioEntity(Integer id, Integer cpf, Integer rg, String nomeCompleto, Integer celular, String sexo, String email, Date dtNascimento, Date dtCadastro, String senha) {
-        this.id = id;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.nomeCompleto = nomeCompleto;
-        this.celular = celular;
-        this.sexo = sexo;
-        this.email = email;
-        this.dtNascimento = dtNascimento;
-        this.dtCadastro = dtCadastro;
-        this.senha = senha;
-    }
-
-    public UsuarioEntity() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(Integer cpf) {
-        this.cpf = cpf;
-    }
-
-    public Integer getRg() {
-        return rg;
-    }
-
-    public void setRg(Integer rg) {
-        this.rg = rg;
-    }
-
-    public String getNomeCompleto() {
-        return nomeCompleto;
-    }
-
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
-    }
-
-    public Integer getCelular() {
-        return celular;
-    }
-
-    public void setCelular(Integer celular) {
-        this.celular = celular;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getDtNascimento() {
-        return dtNascimento;
-    }
-
-    public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
-    }
-
-    public Date getDtCadastro() {
-        return dtCadastro;
-    }
-
-    public void setDtCadastro(Date dtCadastro) {
-        this.dtCadastro = dtCadastro;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 }

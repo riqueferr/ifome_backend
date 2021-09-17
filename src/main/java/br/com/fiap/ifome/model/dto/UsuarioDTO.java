@@ -6,38 +6,51 @@ import java.util.Date;
 
 public class UsuarioDTO {
 
-    private Integer id;
+    private Long id;
     private Integer cpf;
     private Integer rg;
     private String nomeCompleto;
     private Integer celular;
     private String sexo;
     private String email;
-    private Date dtNascimento;
-    private Date dtCadastro;
+    private String dtNascimento;
+    private String dtCadastro;
     private String senha;
 
-    public UsuarioDTO() {
+
+//    public UsuarioDTO(UsuarioEntity) {
+//        this.id = id;
+//        this.cpf = cpf;
+//        this.rg = rg;
+//        this.nomeCompleto = nomeCompleto;
+//        this.celular = celular;
+//        this.sexo = sexo;
+//        this.email = email;
+//        this.dtNascimento = dtNascimento;
+//        this.dtCadastro = dtCadastro;
+//        this.senha = senha;
+//    }
+
+    public UsuarioDTO(UsuarioEntity usuarioEntity) {
+        this.id = usuarioEntity.getId();
+        this.cpf = usuarioEntity.getCpf();
+        this.rg = usuarioEntity.getRg();
+        this.nomeCompleto = usuarioEntity.getNomeCompleto();
+        this.celular = usuarioEntity.getCelular();
+        this.sexo = usuarioEntity.getSexo();
+        this.email = usuarioEntity.getEmail();
+        this.dtNascimento = usuarioEntity.getDtNascimento();
+        this.dtCadastro = usuarioEntity.getDtCadastro();
+        this.senha = usuarioEntity.getSenha();
     }
 
-    public UsuarioDTO(Integer id, Integer cpf, Integer rg, String nomeCompleto, Integer celular, String sexo, String email, Date dtNascimento, Date dtCadastro, String senha) {
-        this.id = id;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.nomeCompleto = nomeCompleto;
-        this.celular = celular;
-        this.sexo = sexo;
-        this.email = email;
-        this.dtNascimento = dtNascimento;
-        this.dtCadastro = dtCadastro;
-        this.senha = senha;
-    }
 
-    public Integer getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -89,19 +102,19 @@ public class UsuarioDTO {
         this.email = email;
     }
 
-    public Date getDtNascimento() {
+    public String getDtNascimento() {
         return dtNascimento;
     }
 
-    public void setDtNascimento(Date dtNascimento) {
+    public void setDtNascimento(String dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
 
-    public Date getDtCadastro() {
+    public String getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(String dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
