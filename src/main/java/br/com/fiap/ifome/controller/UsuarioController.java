@@ -35,8 +35,6 @@ public class UsuarioController {
     }
 
 
-
-
     @GetMapping("/listar")
     public List<UsuarioEntity> getAllUsuarios(){
         return repository.findAll();

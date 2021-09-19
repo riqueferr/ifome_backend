@@ -7,7 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
 
-
     @Query("SELECT us " +
             "FROM UsuarioEntity us " +
             "WHERE us.id = :id")
